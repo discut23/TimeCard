@@ -1,53 +1,43 @@
 package group1.artifact1;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
-import com.fasterxml.jackson.annotation.JsonIncludeProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.time.*;
-@JsonIncludeProperties
-public class TimeSheet {
-    @JsonAlias(value = "employee_id")
-    private int employee_id;        //todo - maybe class Employee ? todo - not returning as employee_id but as employeeId?!
 
-    private ArrayList<ArrayList<LocalDateTime>> dates; //todo - define a size of exactly 2 for each array in the list
+public class TimeSheet {
+
+    @JsonProperty("employee_id")
+    private int employeeId;        //todo - maybe class Employee ? todo - not returning as employee_id but as employeeId?!
+
+    @JsonProperty("dates")
+    private ArrayList<ArrayList<LocalDateTime>> clockingRecords; //todo - define a size of exactly 2 for each array in the list
 
     public int getEmployeeId() {
-        return employee_id;
+        return employeeId;
     }
 
     public void setEmployeeId(int id) {
-        this.employee_id = id;
+        this.employeeId = id;
     }
     public TimeSheet(int id){
         setEmployeeId(id);
-        dates = new ArrayList<ArrayList<LocalDateTime>>();
+        clockingRecords = new ArrayList<ArrayList<LocalDateTime>>();
     }
 
     public boolean clockIn(){
         //todo - lock to prevent concurrent updates
         boolean result = true;
 
-        if ((dates.size() == 0)||(dates.get(dates.size()-1).size() == 2)){
+        if ((clockingRecords.size() == 0)||(clockingRecords.get(clockingRecords.size()-1).size() == 2)){
             //first time or last record contains clock out data
-            dates.add(new ArrayList<LocalDateTime>());
-
-            System.out.println("size=0 or last clock=out");
-            System.out.println(employee_id);
-            System.out.println(dates);
-            System.out.println(dates.get(dates.size()-1));
-
+            clockingRecords.add(new ArrayList<LocalDateTime>());
         } else {
            result = false;
         }
 
         if (result) {
-            dates.get(dates.size()-1).add(LocalDateTime.now());
-
-            System.out.println("result=true");
-            System.out.println(employee_id);
-            System.out.println(dates.size());
-            System.out.println(dates.get(dates.size()-1));
+            clockingRecords.get(clockingRecords.size()-1).add(LocalDateTime.now());
         }
 
         return result;
@@ -57,17 +47,17 @@ public class TimeSheet {
         //todo - lock to prevent concurrent updates
         boolean result = true;
 
-        if ((dates.size() == 0)||(dates.get(dates.size()-1).size() == 2)){
+        if ((clockingRecords.size() == 0)||(clockingRecords.get(clockingRecords.size()-1).size() == 2)){
             //first time or last record contains clock out data
             result = false;
             System.out.println("result=false");
         } else {
-            dates.get(dates.size()-1).add(LocalDateTime.now());
+            clockingRecords.get(clockingRecords.size()-1).add(LocalDateTime.now());
 
             System.out.println("size!=0 or last clock=in");
-            System.out.println(employee_id);
-            System.out.println(dates);
-            System.out.println(dates.get(dates.size()-1));
+            System.out.println(employeeId);
+            System.out.println(clockingRecords);
+            System.out.println(clockingRecords.get(clockingRecords.size()-1));
         }
 
         return result;

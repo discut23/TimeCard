@@ -115,10 +115,10 @@ public class TimeCardController {
 
         if (status) {
             timeSheet = timeSheets.get(numId);
-            if (timeSheet == null) {
+            /*if (timeSheet == null) {
                 timeSheet = new TimeSheet(numId);
                 timeSheets.put(numId, timeSheet);
-            }
+            }*/
         }
         //System.out.println(numId);
         //System.out.print(timeSheet);
