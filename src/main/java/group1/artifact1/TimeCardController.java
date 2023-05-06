@@ -31,10 +31,9 @@ public class TimeCardController {
         TimeSheet timeSheet;
         boolean status = true;
 
-        try{
+        try {
             numId = Integer.parseInt(id);
-        }
-        catch (NumberFormatException ex) {
+        } catch (NumberFormatException ex) {
             //throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);  ? don't continue ?
             status = false;
             numId = 0;  //pesky compiler
@@ -46,7 +45,7 @@ public class TimeCardController {
                 timeSheet = new TimeSheet(numId);
                 timeSheets.put(numId, timeSheet);
             }
-            if (Objects.equals(action, "in")){
+            if (Objects.equals(action, "in")) {
                 status = timeSheet.clockIn();
             } else if (Objects.equals(action, "out")) {
                 status = timeSheet.clockOut();
@@ -65,6 +64,7 @@ public class TimeCardController {
 
         if (!status) {
             throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/info")
