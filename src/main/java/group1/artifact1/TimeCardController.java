@@ -1,15 +1,10 @@
 package group1.artifact1;
 
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
-import org.springframework.boot.json.GsonJsonParser;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpServerErrorException;
-import org.springframework.web.servlet.function.EntityResponse;
 import java.util.*;
 
     //todo - tests
@@ -24,13 +19,11 @@ public class TimeCardController {
     @GetMapping("/enter")
     public void clockIn(@RequestParam(value = "id",defaultValue = "") String id) {
         clockInOut(id, "in");
-        return;
     }
 
     @GetMapping("/exit")
     public void clockOut(@RequestParam(value = "id",defaultValue = "") String id) {
         clockInOut(id, "out");
-        return;
     }
 
     private void clockInOut(String id, String action) {
