@@ -7,13 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpServerErrorException;
 import java.util.*;
 
-    //todo - tests
+//todo - tests
+//todo - deploy server
+//todo - locks
 @RestController
 public class TimeCardController {
-
-    //private static List<TimeSheet> timeSheets;
-    //private static ArrayList<TimeSheet> timeSheetArrayList = new ArrayList<TimeSheet>();
-
     private static Map<Integer,TimeSheet> timeSheets = new HashMap<Integer,TimeSheet>();
 
     @GetMapping("/enter")
