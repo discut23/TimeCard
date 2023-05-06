@@ -49,6 +49,7 @@ public class TimeCardController {
                 status = timeSheet.clockIn();
             } else if (Objects.equals(action, "out")) {
                 status = timeSheet.clockOut();
+                // todo - maybe don't create a time sheet for id
             } else {
                 status = false;
                 //todo  if action not "in" / "out" throw exception
@@ -58,10 +59,6 @@ public class TimeCardController {
             timeSheet = null;  //pesky compiler
         }
 
-        //System.out.println(numId);
-        //System.out.print(timeSheet);
-        //System.out.print(timeSheets);
-
         if (!status) {
             throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -69,7 +66,6 @@ public class TimeCardController {
 
     @GetMapping("/info")
     public Object getClockingInfo(@RequestParam(value = "id",required = false, defaultValue = "") String id) {
-        //todo - how to return a single object vs array of objects ? return type Object?
         int numId;
         TimeSheet timeSheet = null;
         boolean status = true;
@@ -79,14 +75,8 @@ public class TimeCardController {
         if (Objects.equals(id, "")) {
             ArrayList<TimeSheet> allTimeSheets = new ArrayList<TimeSheet>();
 
-            System.out.println(timeSheets);
-
             for (int tsKey : timeSheets.keySet()) {
                 allTimeSheets.add(timeSheets.get(tsKey));
-
-                System.out.println(tsKey);
-                System.out.println(timeSheets.get(tsKey));
-
             }
 
             return allTimeSheets;
@@ -104,14 +94,7 @@ public class TimeCardController {
 
         if (status) {
             timeSheet = timeSheets.get(numId);
-            /*if (timeSheet == null) {
-                timeSheet = new TimeSheet(numId);
-                timeSheets.put(numId, timeSheet);
-            }*/
         }
-        //System.out.println(numId);
-        //System.out.print(timeSheet);
-        //System.out.print(timeSheets);
 
         return timeSheet;
     }

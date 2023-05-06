@@ -1,5 +1,6 @@
 package group1.artifact1;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ public class TimeSheet {
     private int employeeId;        //todo - maybe class Employee ? todo - not returning as employee_id but as employeeId?!
 
     @JsonProperty("dates")
+    @JsonFormat(pattern = "dd-MM-yyyy-HH:mm")
     private ArrayList<ArrayList<LocalDateTime>> clockingRecords; //todo - define a size of exactly 2 for each array in the list
 
     public int getEmployeeId() {
@@ -50,14 +52,8 @@ public class TimeSheet {
         if ((clockingRecords.size() == 0)||(clockingRecords.get(clockingRecords.size()-1).size() == 2)){
             //first time or last record contains clock out data
             result = false;
-            System.out.println("result=false");
         } else {
             clockingRecords.get(clockingRecords.size()-1).add(LocalDateTime.now());
-
-            System.out.println("size!=0 or last clock=in");
-            System.out.println(employeeId);
-            System.out.println(clockingRecords);
-            System.out.println(clockingRecords.get(clockingRecords.size()-1));
         }
 
         return result;
