@@ -65,10 +65,6 @@ public class TimeCardController {
 
         if (!status) {
             throw new HttpServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
-        } else {
-            return;
-        }
-
     }
 
     @GetMapping("/info")
