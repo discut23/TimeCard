@@ -1,10 +1,10 @@
 package group1.artifact1;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-//todo - change Get to Post
 //todo - tests
 //todo - deploy server
 @RestController
@@ -12,12 +12,12 @@ public class TimeCardController {
 
     private final TimeCardService timeCardService = new TimeCardService();
 
-    @GetMapping("/enter")
+    @PostMapping("/enter")
     public void clockIn(@RequestParam(value = "id",defaultValue = "") String id) {
         timeCardService.clockInOut(id, "in");
     }
 
-    @GetMapping("/exit")
+    @PostMapping("/exit")
     public void clockOut(@RequestParam(value = "id",defaultValue = "") String id) {
         timeCardService.clockInOut(id, "out");
     }
