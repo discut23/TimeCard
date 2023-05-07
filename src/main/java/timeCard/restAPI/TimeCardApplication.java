@@ -1,4 +1,4 @@
-package group1.artifact1;
+package timeCard.restAPI;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

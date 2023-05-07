@@ -1,4 +1,4 @@
-package group1.artifact1;
+package timeCard.restAPI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

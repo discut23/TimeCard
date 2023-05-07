@@ -1,4 +1,4 @@
-package group1.artifact1;
+package timeCard.restAPI;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
