@@ -34,7 +34,7 @@ public class TimeCardApplicationTests {
 		ResponseEntity<String> response = restTemplate.postForEntity(uri, request, String.class);
 
 		//Verify request fails
-		Assert.assertEquals(500, response.getStatusCode().value());
+		Assertions.assertEquals(500, response.getStatusCode().value());
 	}
 	@Test
 	@Order(2)
@@ -48,7 +48,7 @@ public class TimeCardApplicationTests {
 		ResponseEntity<String> response = restTemplate.postForEntity(uri, request, String.class);
 
 		//Verify request succeeds
-		Assert.assertEquals(200, response.getStatusCode().value());
+		Assertions.assertEquals(200, response.getStatusCode().value());
 	}
 
 	@Test
@@ -63,7 +63,7 @@ public class TimeCardApplicationTests {
 		ResponseEntity<String> response = restTemplate.postForEntity(uri, request, String.class);
 
 		//Verify request fails
-		Assert.assertEquals(500, response.getStatusCode().value());
+		Assertions.assertEquals(500, response.getStatusCode().value());
 	}
 
 	@Test
@@ -78,7 +78,7 @@ public class TimeCardApplicationTests {
 		ResponseEntity<String> response = restTemplate.postForEntity(uri, request, String.class);
 
 		//Verify request succeeds
-		Assert.assertEquals(200, response.getStatusCode().value());
+		Assertions.assertEquals(200, response.getStatusCode().value());
 	}
 	@Test
 	@Order(5)
@@ -92,7 +92,7 @@ public class TimeCardApplicationTests {
 		ResponseEntity<String> response = restTemplate.postForEntity(uri, request, String.class);
 
 		//Verify request fails
-		Assert.assertEquals(500, response.getStatusCode().value());
+		Assertions.assertEquals(500, response.getStatusCode().value());
 	}
 	@Test
 	@Order(6)
@@ -106,7 +106,7 @@ public class TimeCardApplicationTests {
 		ResponseEntity<String> response = restTemplate.postForEntity(uri, request, String.class);
 
 		//Verify request succeeds
-		Assert.assertEquals(200, response.getStatusCode().value());
+		Assertions.assertEquals(200, response.getStatusCode().value());
 	}
 
 	@Test
@@ -121,7 +121,7 @@ public class TimeCardApplicationTests {
 
 		//Verify request succeed
 		Assertions.assertEquals(200, response.getStatusCode().value());
-		Assertions.assertTrue(response.getBody().toString().contains("\"employee_id\":11"));
+		Assertions.assertTrue(response.getBody().contains("\"employee_id\":11"));
 	}
 
 	@Test
@@ -136,7 +136,7 @@ public class TimeCardApplicationTests {
 		ResponseEntity<String> response = restTemplate.postForEntity(uri, request, String.class);
 
 		//Verify request succeeds
-		Assert.assertEquals(200, response.getStatusCode().value());
+		Assertions.assertEquals(200, response.getStatusCode().value());
 	}
 	@Test
 	@Order(9)
@@ -151,7 +151,7 @@ public class TimeCardApplicationTests {
 
 		//Verify request succeed
 		Assertions.assertEquals(200, response.getStatusCode().value());
-		Assertions.assertTrue(response.getBody().toString().contains("\"employee_id\":11"));
-		Assertions.assertTrue(response.getBody().toString().contains("\"employee_id\":12"));
+		Assertions.assertTrue(response.getBody().contains("\"employee_id\":11"));
+		Assertions.assertTrue(response.getBody().contains("\"employee_id\":12"));
 	}
 }
