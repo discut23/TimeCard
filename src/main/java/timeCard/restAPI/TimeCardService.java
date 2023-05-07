@@ -42,7 +42,6 @@ public class TimeCardService {
                 status = timeSheet.clockIn();
             } else if (action.equals("out")) {
                 status = timeSheet.clockOut();
-                // todo - maybe don't create a time sheet for id
             } else {
                 status = false;
             }

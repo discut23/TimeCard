@@ -21,7 +21,6 @@ public class TimeSheet {
     }
 
     public boolean clockIn(){
-        //todo - lock to prevent concurrent updates
         boolean result = true;
 
         if ((clockingRecords.size() == 0)||(clockingRecords.get(clockingRecords.size()-1).size() == 2)){
@@ -37,7 +36,6 @@ public class TimeSheet {
     }
 
     public boolean clockOut(){
-        //todo - lock to prevent concurrent updates
         boolean result = true;
 
         if ((clockingRecords.size() == 0)||(clockingRecords.get(clockingRecords.size()-1).size() == 2)){
