@@ -1,1 +1,1 @@
-web: java -jar target/timecard-0.0.1-SNAPSHOT.jar
+web: java -jar target/timeCard-0.0.1-SNAPSHOT.jar
