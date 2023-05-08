@@ -1,4 +1,4 @@
-package timeCard.restAPI;
+package group1.timeCard.restAPI;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

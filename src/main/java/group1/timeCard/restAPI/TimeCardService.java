@@ -1,4 +1,4 @@
-package timeCard.restAPI;
+package group1.timeCard.restAPI;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

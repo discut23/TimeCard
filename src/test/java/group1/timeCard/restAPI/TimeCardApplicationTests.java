@@ -1,4 +1,4 @@
-package timeCard.restAPI;
+package group1.timeCard.restAPI;
 
 import java.net.URI;
 
