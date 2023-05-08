@@ -13,7 +13,7 @@ public class TimeSheet {
 
     @JsonProperty("dates")
     @JsonFormat(pattern = "dd-MM-yyyy-HH:mm")
-    private ArrayList<ArrayList<LocalDateTime>> clockingRecords; //todo - define a size of exactly 2 for each array in the list
+    private final ArrayList<ArrayList<LocalDateTime>> clockingRecords;
 
     public TimeSheet(int id){
         employeeId = id;
