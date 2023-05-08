@@ -2,7 +2,6 @@ package timeCard.restAPI;
 
 import java.net.URI;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,6 +12,10 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 
+	/*=============================================================
+	 The tests are run in a specific order to verify
+	 the required behavior in each state of the timesheet records.
+	 ==============================================================*/
 @SpringBootTest(webEnvironment=WebEnvironment.DEFINED_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TimeCardApplicationTests {
